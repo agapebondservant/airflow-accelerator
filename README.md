@@ -41,7 +41,7 @@ ssh-keygen -t rsa -b 4096 -C "airflow@gmail.com"
 ```
 #export AIRFLOW_SSH_SECRET=$(cat airflow | base64)
 #envsubst < resources/secret.in.yaml > resources/secret.yaml
-helm install airflow oci://registry-1.docker.io/bitnamicharts/airflow -f resources/values.yaml --namespace airflow --create-namespace --wait
+helm install airflow bitnami/airflow --version 16.0.0 -f resources/values.yaml --namespace airflow --create-namespace --wait
 watch kubectl get all -nairflow
 ```
 
