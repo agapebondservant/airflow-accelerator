@@ -14,6 +14,13 @@ accelerator:
   - "etl"
   - "airflow"
   options:
+    - name: manual
+      inputType: radio
+      display: true
+      choices:
+        - text: 'View guidance manual: https://github.com/bitnami/charts/tree/main/bitnami/airflow'
+          value: doc
+      defaultValue: doc
     - name: authUsername
       inputType: text
       display: true
