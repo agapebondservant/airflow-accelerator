@@ -1,16 +1,145 @@
 accelerator:
-  displayName: Evidently Accelerator
-  description: Template for deploying Evidently to TAP
-  iconUrl: https://uploads-ssl.webflow.com/6266b595eef18c96eef938e2/62b245d0f032adaa18124084_evidently_ai_logo_fi.png
+  displayName: Airflow Accelerator
+  description: Template for deploying Airflow to TAP
+  iconUrl: https://static-00.iconduck.com/assets.00/airflow-icon-512x512-tpr318yf.png
   tags:
   - "ML"
   - "AI"
-  - "machinelearning"
+  - "pipeline"
   - "datascience"
   - "MLOps"
-  - "artificialintelligence"
+  - "workflow"
   - "python"
   - "data"
-  - "monitoring"
-  - "evidently"
+  - "etl"
+  - "airflow"
+  options:
+    - name: authUsername
+      inputType: text
+      display: true
+      label: 'auth.username'
+      defaultValue: 'admin'
+    - name: authPassword
+      inputType: text
+      display: true
+      label: 'auth.password'
+      defaultValue: 'admin'
+    - name: authFernetKey
+      inputType: text
+      display: true
+      label: 'auth.fernetKey'
+      defaultValue: 'NAQN6zptxHdtKveOfH2ur4nGa6uhcad6yWIRSZBY3IY='
+    - name: executor
+      inputType: text
+      display: true
+      label: 'executor'
+      defaultValue: 'KubernetesExecutor'
+    - name: webImageDebug
+      inputType: text
+      display: true
+      label: 'web.image.debug'
+      defaultValue: 'true'
+    - name: schedulerImageDebug
+      inputType: text
+      display: true
+      label: 'scheduler.image.debug'
+      defaultValue: 'true'
+    - name: schedulerAutomountServiceAccountToken
+      inputType: text
+      display: true
+      label: 'scheduler.automountServiceAccountToken'
+      defaultValue: 'true'
+    - name: workerImageDebug
+      inputType: text
+      display: true
+      label: 'worker.image.debug'
+      defaultValue: 'true'
+    - name: gitDagsEnabled
+      inputType: text
+      display: true
+      label: 'git.dags.enabled'
+      defaultValue: 'true'
+    - name: gitDagsRepositories0Repository
+      inputType: text
+      display: true
+      label: 'git.dags.repositories[0].repository'
+      defaultValue: 'https://github.com/agapebondservant/airflow-accelerator'
+    - name: gitDagsRepositories0Branch
+      inputType: text
+      display: true
+      label: 'git.dags.repositories[0].branch'
+      defaultValue: 'main'
+    - name: gitDagsRepositories0Name
+      inputType: text
+      display: true
+      label: 'git.dags.repositories[0].name'
+      defaultValue: 'tanzu-dags'
+    - name: gitDagsRepositories0Path
+      inputType: text
+      display: true
+      label: 'git.dags.repositories[0].path'
+      defaultValue: 'resources/dags'
+    - name: serviceType
+      inputType: text
+      display: true
+      label: 'service.type'
+      defaultValue: 'LoadBalancer'
+    - name: servicePorts0Http
+      inputType: text
+      display: true
+      label: 'service.ports[0].http'
+      defaultValue: '8080'
+    - name: rbacCreate
+      inputType: text
+      display: true
+      label: 'rbac.create'
+      defaultValue: 'true'
+    - name: redisEnabled
+      inputType: text
+      display: true
+      label: 'redis.enabled'
+      defaultValue: 'false'
+engine:
+  type: Merge
+  sources:
+    - type: Chain
+      transformations:
+        - type: Include
+          patterns: [ 'resources/values-overrides.yaml' ]
+        - type: ReplaceText
+          substitutions:
+            - text: REPLACE_AUTH_USERNAME
+              with: "#authUsername"
+            - text: REPLACE_AUTH_PASSWORD
+              with: "#authPassword"
+            - text: REPLACE_AUTH_FERNET_KEY
+              with: "#authFernetKey"
+            - text: REPLACE_EXECUTOR
+              with: "#executor"
+            - text: REPLACE_WEB_IMAGE_DEBUG
+              with: "#webImageDebug"
+            - text: REPLACE_SCHEDULER_IMAGE_DEBUG
+              with: "#schedulerImageDebug"
+            - text: REPLACE_SCHEDULER_AUTOMOUNT
+              with: "#schedulerAutomountServiceAccountToken"
+            - text: REPLACE_WORKER_IMAGE_DEBUG
+              with: "#workerImageDebug"
+            - text: REPLACE_GIT_DAGS_ENABLED
+              with: "#gitDagsEnabled"
+            - text: REPLACE_GIT_DAGS_REPO
+              with: "#gitDagsRepositories0Repository"
+            - text: REPLACE_GIT_DAGS_BRANCH
+              with: "#gitDagsRepositories0Branch"
+            - text: REPLACE_GIT_DAGS_NAME
+              with: "#gitDagsRepositories0Name"
+            - text: REPLACE_GIT_DAGS_PATH
+              with: "#gitDagsRepositories0Path"
+            - text: REPLACE_SERVICE_TYPE
+              with: "#serviceType"
+            - text: REPLACE_SERVICE_PORT
+              with: "#servicePorts0Http"
+            - text: REPLACE_RBAC_CREATE
+              with: "#rbacCreate"
+            - text: REPLACE_REDIS_ENABLED
+              with: "#redisEnabled"
 

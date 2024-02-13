@@ -65,15 +65,15 @@ diagnosticMode:
 auth:
   ## @param auth.username Username to access web UI
   ##
-  username: admin
+  username: REPLACE_AUTH_USERNAME
   ## @param auth.password Password to access web UI
   ##
-  password: admin
+  password: REPLACE_AUTH_PASSWORD
   ## @param auth.fernetKey Fernet key to secure connections
   ## ref: https://airflow.readthedocs.io/en/stable/howto/secure-connections.html
   ## ref: https://bcb.github.io/airflow/fernet-key
   ##
-  fernetKey: NAQN6zptxHdtKveOfH2ur4nGa6uhcad6yWIRSZBY3IY=
+  fernetKey: REPLACE_AUTH_FERNET_KEY
   ## @param auth.secretKey Secret key to run your flask app
   ## ref: https://airflow.apache.org/docs/apache-airflow/stable/configurations-ref.html#secret-key
   ##
@@ -87,7 +87,7 @@ auth:
 ## @param executor Airflow executor. Allowed values: `SequentialExecutor`, `LocalExecutor`, `CeleryExecutor`, `KubernetesExecutor`, `CeleryKubernetesExecutor` and `LocalKubernetesExecutor`
 ## ref: http://airflow.apache.org/docs/stable/executor/index.html
 ##
-executor: KubernetesExecutor
+executor: REPLACE_EXECUTOR
 ## @param loadExamples Switch to load some Airflow examples
 ##
 loadExamples: false
@@ -205,7 +205,7 @@ web:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: true
+    debug: REPLACE_WEB_IMAGE_DEBUG
   ## @param web.baseUrl URL used to access to Airflow web ui
   ##
   baseUrl: ""
@@ -537,7 +537,7 @@ scheduler:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: true
+    debug: REPLACE_SCHEDULER_IMAGE_DEBUG
   ## @param scheduler.replicaCount Number of scheduler replicas
   ##
   replicaCount: 1
@@ -647,7 +647,7 @@ scheduler:
   lifecycleHooks: {}
   ## @param scheduler.automountServiceAccountToken Mount Service Account token in pod
   ##
-  automountServiceAccountToken: true
+  automountServiceAccountToken: REPLACE_SCHEDULER_AUTOMOUNT
   ## @param scheduler.hostAliases Deployment pod host aliases
   ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
   ##
@@ -845,7 +845,7 @@ worker:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: true
+    debug: REPLACE_WORKER_IMAGE_DEBUG
   ## @param worker.command Override default container command (useful when using custom images)
   ##
   command: []
@@ -1195,7 +1195,7 @@ git:
   ## @param git.dags.repositories [array] Array of repositories from which to download DAG files
   ##
   dags:
-    enabled: true
+    enabled: REPLACE_GIT_DAGS_ENABLED
     ## Name for repositories can be anything unique and must follow same naming conventions as kubernetes.
     ## Kubernetes resources can have names up to 253 characters long. The characters allowed in names are:
     ## digits (0-9), lower case letters (a-z), -, and .
@@ -1206,10 +1206,10 @@ git:
     ##     path: /
     ##
     repositories:
-      - repository: https://github.com/agapebondservant/airflow-accelerator
-        branch: main
-        name: tanzu-dags
-        path: resources/dags
+      - repository: REPLACE_GIT_DAGS_REPO
+        branch: REPLACE_GIT_DAGS_BRANCH
+        name: REPLACE_GIT_DAGS_NAME
+        path: REPLACE_GIT_DAGS_PATH
 
   ## Get Plugins files from git repositories.
   ## @param git.plugins.enabled Enable in order to download Plugins files from git repositories.
@@ -1322,11 +1322,11 @@ ldap:
 service:
   ## @param service.type Airflow service type
   ##
-  type: LoadBalancer
+  type: REPLACE_SERVICE_TYPE
   ## @param service.ports.http Airflow service HTTP port
   ##
   ports:
-    http: 80
+    http: REPLACE_SERVICE_PORT
   ## Node ports to expose
   ## @param service.nodePorts.http Node port for HTTP
   ## NOTE: choose port between <30000-32767>
@@ -1501,7 +1501,7 @@ serviceAccount:
 ## @param rbac.create Create Role and RoleBinding
 ##
 rbac:
-  create: true
+  create: REPLACE_RBAC_CREATE
   ## @param rbac.rules Custom RBAC rules to set
   ## e.g:
   ## rules:
@@ -1828,7 +1828,7 @@ externalDatabase:
 ## @param redis.architecture Redis&reg; architecture. Allowed values: `standalone` or `replication`
 ##
 redis:
-  enabled: false
+  enabled: REPLACE_REDIS_ENABLED
   auth:
     enabled: true
     ## Redis&reg; password (both master and slave). Defaults to a random 10-character alphanumeric string if not set and auth.enabled is true.
