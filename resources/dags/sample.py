@@ -48,7 +48,7 @@ if k8s:
             schedule="* * * * *",
             start_date=pendulum.datetime(2023, 1, 1, tz="UTC"),
             catchup=False,
-            tags=["example3"],
+            tags=["example3","uhs"],
     ) as dag:
         # You can use annotations on your kubernetes pods!
         start_task_executor_config = {
