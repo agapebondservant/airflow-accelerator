@@ -1,0 +1,16 @@
+accelerator:
+  displayName: Evidently Accelerator
+  description: Template for deploying Evidently to TAP
+  iconUrl: https://uploads-ssl.webflow.com/6266b595eef18c96eef938e2/62b245d0f032adaa18124084_evidently_ai_logo_fi.png
+  tags:
+  - "ML"
+  - "AI"
+  - "machinelearning"
+  - "datascience"
+  - "MLOps"
+  - "artificialintelligence"
+  - "python"
+  - "data"
+  - "monitoring"
+  - "evidently"
+
