@@ -30,6 +30,28 @@ source .env
 ```
 
 ### Install Airflow via vanilla Kubernetes<a name="k8s"/>
+1. Generate an SSH key (enter **airflow** when prompted for file name):
+```
+ssh-keygen -t rsa -b 4096 -C "airflow@gmail.com"
+```
+
+2. In your GitHub repo, go to Settings -> Deploy Keys -> Add deploy key, and copy the contents of **airflow.pub** as a new deploy key.
+
+3. Deploy Airflow:
+```
+#export AIRFLOW_SSH_SECRET=$(cat airflow | base64)
+#envsubst < resources/secret.in.yaml > resources/secret.yaml
+helm install airflow oci://registry-1.docker.io/bitnamicharts/airflow -f resources/values.yaml --namespace airflow --create-namespace --wait
+watch kubectl get all -nairflow
+```
+
+4. To uninstall:
+```
+helm uninstall airflow --namespace airflow
+kubectl delete ns airflow
+```
+
+Airflow UI should be accessible at http://<LoadBalancerIP>.
 
 #### Before you begin:
 Create an environment file `.env` (use `.env-sample` as a template), then run:
