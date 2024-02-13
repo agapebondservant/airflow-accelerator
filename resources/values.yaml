@@ -87,7 +87,7 @@ auth:
 ## @param executor Airflow executor. Allowed values: `SequentialExecutor`, `LocalExecutor`, `CeleryExecutor`, `KubernetesExecutor`, `CeleryKubernetesExecutor` and `LocalKubernetesExecutor`
 ## ref: http://airflow.apache.org/docs/stable/executor/index.html
 ##
-executor: CeleryKubernetesExecutor
+executor: KubernetesExecutor
 ## @param loadExamples Switch to load some Airflow examples
 ##
 loadExamples: false
@@ -205,7 +205,7 @@ web:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: false
+    debug: true
   ## @param web.baseUrl URL used to access to Airflow web ui
   ##
   baseUrl: ""
@@ -537,7 +537,7 @@ scheduler:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: false
+    debug: true
   ## @param scheduler.replicaCount Number of scheduler replicas
   ##
   replicaCount: 1
@@ -845,7 +845,7 @@ worker:
     pullSecrets: []
     ## Set to true if you would like to see extra information on logs
     ##
-    debug: false
+    debug: true
   ## @param worker.command Override default container command (useful when using custom images)
   ##
   command: []
@@ -1206,16 +1206,11 @@ git:
     ##     path: /
     ##
     repositories:
-      - repository: "https://github.com/agapebondservant/airflow-accelerator.git"
-        ## Branch from repository to checkout
-        ##
-        branch: "main"
-        ## An unique identifier for repository, must be unique for each repository
-        ##
-        name: "airflow-sample"
-        ## Path to a folder in the repository containing the dags
-        ##
-        path: "resources/dags"
+      - repository: https://github.com/agapebondservant/airflow-accelerator
+        branch: main
+        name: tanzu-dags
+        path: resources/dags
+
   ## Get Plugins files from git repositories.
   ## @param git.plugins.enabled Enable in order to download Plugins files from git repositories.
   ## @param git.plugins.repositories [array] Array of repositories from which to download DAG files
@@ -1497,7 +1492,7 @@ serviceAccount:
   ## @param serviceAccount.automountServiceAccountToken Allows auto mount of ServiceAccountToken on the serviceAccount created
   ## Can be set to false if pods using this serviceAccount do not need to use K8s API
   ##
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
   ## @param serviceAccount.annotations Additional custom annotations for the ServiceAccount
   ##
   annotations: {}
@@ -1506,7 +1501,7 @@ serviceAccount:
 ## @param rbac.create Create Role and RoleBinding
 ##
 rbac:
-  create: false
+  create: true
   ## @param rbac.rules Custom RBAC rules to set
   ## e.g:
   ## rules:
@@ -1833,7 +1828,7 @@ externalDatabase:
 ## @param redis.architecture Redis&reg; architecture. Allowed values: `standalone` or `replication`
 ##
 redis:
-  enabled: true
+  enabled: false
   auth:
     enabled: true
     ## Redis&reg; password (both master and slave). Defaults to a random 10-character alphanumeric string if not set and auth.enabled is true.
