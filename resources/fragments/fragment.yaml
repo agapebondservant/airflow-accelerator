@@ -1,0 +1,9 @@
+apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
+kind: Fragment
+metadata:
+  name: airflow-fragment
+  namespace: accelerator-system
+spec:
+  displayName: Deploys Airflow as an ML Platform Component
+  git:
+    url: https://github.com/agapebondservant/airflow-accelerator.git
