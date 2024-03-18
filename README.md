@@ -16,6 +16,11 @@ tanzu plugin install --local <path-to-tanzu-cli> all
 tanzu acc create airflow --git-repository https://github.com/agapebondservant/airflow-accelerator.git --git-branch main
 ```
 
+Publish Fragments:
+```
+tanzu acc fragment create airflow-fragment --git-repository https://github.com/agapebondservant/airflow-accelerator.git --git-branch main
+```
+
 ## Contents
 1. [Install Airflow via TAP/tanzu cli](#tanzu)
 2. [Install Airflow with vanilla Kubernetes](#k8s)

@@ -157,6 +157,22 @@ accelerator:
       dependsOn:
         name: mlPlatformType
         value: dataprocess
+    - name: mainImageTag
+      inputType: text
+      display: true
+      label: 'main.image.tag'
+      defaultValue: '11-debian-11-r96'
+      dependsOn:
+        name: mlPlatformType
+        value: dataprocess
+    - name: metricsImageTag
+      inputType: text
+      display: true
+      label: 'metrics.image.tag'
+      defaultValue: '0.20220314.0-debian-11-r448'
+      dependsOn:
+        name: mlPlatformType
+        value: dataprocess
 engine:
   type: Merge
   sources:
@@ -200,4 +216,8 @@ engine:
               with: "#rbacCreate"
             - text: REPLACE_REDIS_ENABLED
               with: "#redisEnabled"
+            - text: REPLACE_MAIN_IMAGE_TAG
+              with: "#mainImageTag"
+            - text: REPLACE_METRICS_IMAGE_TAG
+              with: "#metricsImageTag"
 
