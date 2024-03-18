@@ -23,89 +23,123 @@ accelerator:
       defaultValue: doc
     - name: authUsername
       inputType: text
-      display: true
       label: 'auth.username'
       defaultValue: 'admin'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: authPassword
       inputType: text
-      display: true
       label: 'auth.password'
       defaultValue: 'admin'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: authFernetKey
       inputType: text
-      display: true
       label: 'auth.fernetKey'
       defaultValue: 'NAQN6zptxHdtKveOfH2ur4nGa6uhcad6yWIRSZBY3IY='
+      dependsOn:
+        - name: manual
+          value: doc
     - name: executor
       inputType: text
-      display: true
       label: 'executor'
       defaultValue: 'KubernetesExecutor'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: webImageDebug
       inputType: text
-      display: true
       label: 'web.image.debug'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: schedulerImageDebug
       inputType: text
-      display: true
       label: 'scheduler.image.debug'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: schedulerAutomountServiceAccountToken
       inputType: text
-      display: true
       label: 'scheduler.automountServiceAccountToken'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: workerImageDebug
       inputType: text
-      display: true
       label: 'worker.image.debug'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: gitDagsEnabled
       inputType: text
-      display: true
       label: 'git.dags.enabled'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: gitDagsRepositories0Repository
       inputType: text
-      display: true
       label: 'git.dags.repositories[0].repository'
       defaultValue: 'https://github.com/agapebondservant/airflow-accelerator'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: gitDagsRepositories0Branch
       inputType: text
-      display: true
       label: 'git.dags.repositories[0].branch'
       defaultValue: 'main'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: gitDagsRepositories0Name
       inputType: text
-      display: true
       label: 'git.dags.repositories[0].name'
       defaultValue: 'tanzu-dags'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: gitDagsRepositories0Path
       inputType: text
-      display: true
       label: 'git.dags.repositories[0].path'
       defaultValue: 'resources/dags'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: serviceType
       inputType: text
-      display: true
       label: 'service.type'
       defaultValue: 'LoadBalancer'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: servicePorts0Http
       inputType: text
-      display: true
       label: 'service.ports[0].http'
       defaultValue: '8080'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: rbacCreate
       inputType: text
-      display: true
       label: 'rbac.create'
       defaultValue: 'true'
+      dependsOn:
+        - name: manual
+          value: doc
     - name: redisEnabled
       inputType: text
-      display: true
       label: 'redis.enabled'
       defaultValue: 'false'
+      dependsOn:
+        - name: manual
+          value: doc
 engine:
   type: Merge
   sources:
