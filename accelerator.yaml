@@ -14,132 +14,149 @@ accelerator:
   - "etl"
   - "airflow"
   options:
-    - name: manual
+    - name: mlPlatformType
       inputType: radio
       display: true
       choices:
         - text: 'View guidance manual: https://github.com/bitnami/charts/tree/main/bitnami/airflow'
-          value: doc
-      defaultValue: doc
+          value: dataprocess
+      defaultValue: dataprocess
     - name: authUsername
       inputType: text
+      display: true
       label: 'auth.username'
       defaultValue: 'admin'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: authPassword
       inputType: text
+      display: true
       label: 'auth.password'
       defaultValue: 'admin'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: authFernetKey
       inputType: text
+      display: true
       label: 'auth.fernetKey'
       defaultValue: 'NAQN6zptxHdtKveOfH2ur4nGa6uhcad6yWIRSZBY3IY='
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: executor
       inputType: text
+      display: true
       label: 'executor'
       defaultValue: 'KubernetesExecutor'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: webImageDebug
       inputType: text
+      display: true
       label: 'web.image.debug'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: schedulerImageDebug
       inputType: text
+      display: true
       label: 'scheduler.image.debug'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: schedulerAutomountServiceAccountToken
       inputType: text
+      display: true
       label: 'scheduler.automountServiceAccountToken'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: workerImageDebug
       inputType: text
+      display: true
       label: 'worker.image.debug'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: gitDagsEnabled
       inputType: text
+      display: true
       label: 'git.dags.enabled'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: gitDagsRepositories0Repository
       inputType: text
+      display: true
       label: 'git.dags.repositories[0].repository'
       defaultValue: 'https://github.com/agapebondservant/airflow-accelerator'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: gitDagsRepositories0Branch
       inputType: text
+      display: true
       label: 'git.dags.repositories[0].branch'
       defaultValue: 'main'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: gitDagsRepositories0Name
       inputType: text
+      display: true
       label: 'git.dags.repositories[0].name'
       defaultValue: 'tanzu-dags'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: gitDagsRepositories0Path
       inputType: text
+      display: true
       label: 'git.dags.repositories[0].path'
       defaultValue: 'resources/dags'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: serviceType
       inputType: text
+      display: true
       label: 'service.type'
       defaultValue: 'LoadBalancer'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: servicePorts0Http
       inputType: text
+      display: true
       label: 'service.ports[0].http'
       defaultValue: '8080'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: rbacCreate
       inputType: text
+      display: true
       label: 'rbac.create'
       defaultValue: 'true'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
     - name: redisEnabled
       inputType: text
+      display: true
       label: 'redis.enabled'
       defaultValue: 'false'
       dependsOn:
-        - name: manual
-          value: doc
+        name: mlPlatformType
+        value: dataprocess
 engine:
   type: Merge
   sources:
