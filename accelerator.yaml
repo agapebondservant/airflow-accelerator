@@ -161,7 +161,7 @@ accelerator:
       inputType: text
       display: true
       label: 'main.image.tag'
-      defaultValue: '11-debian-11-r96'
+      defaultValue: '2.8.1-debian-11-r4'
       dependsOn:
         name: mlPlatformType
         value: dataprocess
