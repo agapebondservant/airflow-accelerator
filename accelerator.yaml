@@ -189,7 +189,7 @@ engine:
     - type: Chain
       transformations:
         - type: Include
-          patterns: [ 'resources/values-overrides.yaml' ]
+          patterns: [ 'resources/**' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_AUTH_USERNAME
