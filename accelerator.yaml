@@ -14,6 +14,16 @@ accelerator:
   - "etl"
   - "airflow"
   options:
+    - name: airflow
+      inputType: radio
+      display: true
+      choices:
+        - text: 'Airflow (Data Preprocessing / ML Training)'
+          value: selected
+      defaultValue: selected
+      dependsOn:
+        name: mlPlatformType
+        value: dataprocess
     - name: mlPlatformType
       inputType: radio
       display: true
