@@ -17,5 +17,3 @@ airflow_service_type: REPLACE_SERVICE_TYPE
 airflow_service_port: REPLACE_SERVICE_PORT
 airflow_rbac_create: REPLACE_RBAC_CREATE
 airflow_redis_enabled: REPLACE_REDIS_ENABLED
-airflow_main_image_tag: REPLACE_MAIN_IMAGE_TAG
-airflow_metrics_image_tag: REPLACE_METRICS_IMAGE_TAG
