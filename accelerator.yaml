@@ -173,7 +173,7 @@ engine:
     - type: Chain
       transformations:
         - type: Include
-          patterns: [ 'resources/**/*.yaml' ]
+          patterns: [ '**/**.yaml' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_AUTH_USERNAME
