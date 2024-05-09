@@ -1,0 +1,11 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: airflow
+  namespace: airflow
+spec:
+  interval: 10m0s
+  provider: generic
+  timeout: 60s
+  url: https://charts.bitnami.com/bitnami
