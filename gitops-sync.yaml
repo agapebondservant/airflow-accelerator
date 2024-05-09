@@ -9,7 +9,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: mlops-flux-system
-  path: ./clusters/mlops/airflow-accelerator/bitnami-airflow/2.8.1
+  path: ./bitnami-airflow/2.8.1
   prune: true
   wait: true
   timeout: 10m0s
