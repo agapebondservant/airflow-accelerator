@@ -131,7 +131,7 @@ accelerator:
       inputType: text
       display: true
       label: 'git.dags.repositories[0].path'
-      defaultValue: 'resources/dags'
+      defaultValue: 'bitnami-airflow/dags'
       dependsOn:
         name: mlPlatformType
         value: dataprocess
