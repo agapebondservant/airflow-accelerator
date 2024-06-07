@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: airflow
+  annotations:
+    github.com/project-slug: agapebondservant/airflow-accelerator
+spec:
+  type: other
+  lifecycle: unknown
+  owner: tanzu-tech-marketing
