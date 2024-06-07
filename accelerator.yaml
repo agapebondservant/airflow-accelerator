@@ -172,10 +172,10 @@ engine:
   sources:
     - type: Chain
       transformations:
-        - type: Include
-          patterns: [ '**/**.yaml' ]
         - type: Exclude
           patterns: [ 'catalog-info.yaml' ]
+        - type: Include
+          patterns: [ '**/**.yaml' ]
         - type: ReplaceText
           substitutions:
             - text: REPLACE_AUTH_USERNAME
